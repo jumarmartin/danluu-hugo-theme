@@ -1,6 +1,6 @@
 
   <ul class="posts">
-      {{ range .RegularPages }}
+      {{ range .Site.RegularPages }}
       <li><span><a href="{{ .Permalink }}">{{ .Title }}</a><time>{{ .Date.Format "01/02/2006" }}</h4></time></span></li>
       {{ end }}
   </ul>
