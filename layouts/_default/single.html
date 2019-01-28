@@ -1,9 +1,21 @@
-{{ template "theme/partials/header.html" . }}
+<head> 
+<style> 
+body{ font-family: sans-serif;} 
+#mainText{font-size: 15px; margin: 0 auto; max-width: 40em}
+.navi-parent{max-width: 60em; margin: 0 auto; text-align: center;}
+</style> 
+</head>
+<body>
+{{ partial "header.html" .}}
 <strong>{{ .Title }}</strong>
 <hr/>
+<div id="mainText">
 {{ .Content }}
-<div class="navi-parent"> 
-{{with .Prev}}<a href="{{.Permalink}}">← {{.Title}}</a>{{end}}
-{{with .Next}}<a href="{{.Permalink}}">{{.Title}} →</a>{{end}}
+
 </div>
-{{ template "theme/partials/footer.html" . }}
+<div class="navi-parent"> 
+{{with .NextPage}}<a href="{{.Permalink}}">← {{.Title}}</a>{{end}}
+{{with .PrevPage}}<a href="{{.Permalink}}">{{.Title}} →</a>{{end}}
+</div>
+{{ partial "footer.html" .}}
+</body>
